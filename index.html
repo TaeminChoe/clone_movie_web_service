@@ -10,23 +10,43 @@
   const root = document.getElementById('root');
 
   function App() {
-    const [data, setData] = React.useState(0);
-    function countUp() {
-      setData(data+1);
+    const [amount, setAmount] = React.useState(0);
+    const [flipped, setFlipped] = React.useState(false);
+    const onChange = (event) => {
+      setAmount(event.target.value);
+    }
+    const reset = () => setAmount(0);
+    const onFlip = () => {      
+      reset();
+      setFlipped((current) => !current);
     }
 
     return (
       <div>
         <h3>
-          Total Clicks: {data}
+          Super Converter
         </h3>
-        <button onClick = {countUp}>
-          Click me!
-        </button>
+        <label htmlFor="minutes">Minutes</label>
+        <input 
+          id="minutes" 
+          placeholder="Minutes" 
+          type="number" 
+          value={flipped ? amount * 60 : amount} 
+          onChange={onChange} 
+          disabled = {flipped}/>
+        <label htmlFor="hours">Hours</label>
+        <input 
+          id="hours" 
+          placeholder="Hours" 
+          type="number" 
+          value={flipped ? amount : Math.round(amount/60)}
+          onChange={onChange}
+          disabled = {!flipped}/>
+        <button onClick={reset}>reset</button>
+        <button onClick={onFlip}>flip</button>
       </div>
     );
   };  
-          
   ReactDOM.render(<App />, root);    
 </script>
 </html>
