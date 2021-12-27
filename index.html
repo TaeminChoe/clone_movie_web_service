@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+<script type="text/babel"/>
+  const root = document.getElementById('root');
+
+  function App() {
+    const [data, setData] = React.useState(0);
+    function countUp() {
+      setData(data+1);
+    }
+
+    return (
+      <div>
+        <h3>
+          Total Clicks: {data}
+        </h3>
+        <button onClick = {countUp}>
+          Click me!
+        </button>
+      </div>
+    );
+  };  
+          
+  ReactDOM.render(<App />, root);    
+</script>
+</html>
