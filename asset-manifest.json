@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/clone_movie_web_service/static/js/main.d106c23e.js",
+    "index.html": "/clone_movie_web_service/index.html",
+    "main.d106c23e.js.map": "/clone_movie_web_service/static/js/main.d106c23e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d106c23e.js"
+  ]
+}
